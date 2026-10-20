@@ -2,9 +2,10 @@
 
 import { CreatorIdentity, SocialTiles } from "@/components/creator-card";
 import { normalizeEmail } from "@/lib/email";
+import { GUIDE_VIEW_URL } from "@/lib/guide";
 import { APK_PATH, RELAY_VERSION } from "@/lib/release";
 import { Dialog } from "@base-ui/react/dialog";
-import { Check, Download, X } from "lucide-react";
+import { ArrowUpRight, Check, Download, X } from "lucide-react";
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
 
@@ -108,13 +109,24 @@ export function DownloadDialog({
                   </Dialog.Description>
                 </div>
               </div>
-              <Link
-                href="/#setup"
-                onClick={() => setOpen(false)}
-                className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-full bg-white text-sm font-semibold text-black hover:bg-white/90"
-              >
-                Setup guide
-              </Link>
+              <div className="mt-4 grid grid-cols-2 gap-2">
+                <Link
+                  href="/#setup"
+                  onClick={() => setOpen(false)}
+                  className="inline-flex h-11 items-center justify-center rounded-full bg-white text-sm font-semibold text-black hover:bg-white/90"
+                >
+                  Setup steps
+                </Link>
+                <a
+                  href={GUIDE_VIEW_URL}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="inline-flex h-11 items-center justify-center gap-1.5 rounded-full border border-white/15 text-sm font-medium text-white hover:bg-white/8"
+                >
+                  View guide
+                  <ArrowUpRight className="size-4" aria-hidden="true" />
+                </a>
+              </div>
               <div className="mt-4 border-t border-white/10 pt-4">
                 <CreatorIdentity />
                 <SocialTiles className="mt-3.5" />

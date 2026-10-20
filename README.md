@@ -91,7 +91,9 @@ The website calls those functions from the server with `SUPABASE_PUBLISHABLE_KEY
 
 ## Setup guide
 
-The home page is one screen (headline, phone, Download) and one setup panel below it with four short tabs: Install, Connect, Keep running, Help. `/guide` redirects to `/#setup`, and the download dialog links there once the APK starts. The steps live in `src/components/setup-panel.tsx`.
+The home page is one screen (headline, phone, Download) and one setup section below it: three steps for connecting Grok to Relay (install, send the prompt to Grok, paste the setup link in Relay). The prompt is shown in full with a Copy button. `/guide` redirects to `/#setup`.
+
+The longer guide is the Google Doc "Relay - Setup Guide (v3.0)". The setup section has **View guide** and **Download PDF** buttons for it, and the download success card has **View guide**. The doc id, the PDF link and the prompt text (copied from the doc) live in `src/lib/guide.ts`. The doc must stay shared as "anyone with the link can view" for those links to work. The steps live in `src/components/setup-panel.tsx`.
 
 ## Deploy on Vercel
 
