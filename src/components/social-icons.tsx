@@ -1,4 +1,5 @@
 import { Globe } from "lucide-react";
+import { CREATOR } from "@/lib/creator";
 
 const FACEBOOK =
   "M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z";
@@ -12,65 +13,69 @@ const WHATSAPP =
 const GMAIL =
   "M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z";
 
-const brands = [
-  {
-    href: "https://www.linkedin.com/in/alvee-alam",
-    label: "LinkedIn",
-    path: LINKEDIN,
-    color: "#0A66C2",
-  },
-  {
-    href: "https://www.facebook.com/share/1CaHaYx8ac/",
-    label: "Facebook",
-    path: FACEBOOK,
-    color: "#0866FF",
-  },
-  {
-    href: "https://wa.me/8801728306663",
-    label: "WhatsApp",
-    path: WHATSAPP,
-    color: "#25D366",
-  },
-  {
-    href: "mailto:venalvees@gmail.com",
-    label: "Email",
-    path: GMAIL,
-    color: "#EA4335",
-  },
-] as const;
+export type SocialKey = "linkedin" | "facebook" | "whatsapp" | "email" | "website";
 
-export function ContactLinks({ className = "" }: { className?: string }) {
+export type Social = {
+  key: SocialKey;
+  label: string;
+  /** Short line under the label on the creator card */
+  handle: string;
+  href: string;
+  color: string;
+  path?: string;
+};
+
+export const SOCIALS: readonly Social[] = [
+  {
+    key: "linkedin",
+    label: "LinkedIn",
+    handle: "in/alvee-alam",
+    href: CREATOR.links.linkedin,
+    color: "#2f8fe6",
+    path: LINKEDIN,
+  },
+  {
+    key: "facebook",
+    label: "Facebook",
+    handle: "Alvee Alam",
+    href: CREATOR.links.facebook,
+    color: "#4a8cff",
+    path: FACEBOOK,
+  },
+  {
+    key: "whatsapp",
+    label: "WhatsApp",
+    handle: "Message me",
+    href: CREATOR.links.whatsapp,
+    color: "#25D366",
+    path: WHATSAPP,
+  },
+  {
+    key: "email",
+    label: "Email",
+    handle: CREATOR.email,
+    href: CREATOR.links.email,
+    color: "#ff6a5c",
+    path: GMAIL,
+  },
+  {
+    key: "website",
+    label: "Website",
+    handle: "tinysamples.com",
+    href: CREATOR.links.website,
+    color: "#c9c9d3",
+  },
+];
+
+export function SocialIcon({ social, className = "size-5" }: { social: Social; className?: string }) {
+  if (!social.path) return <Globe className={className} aria-hidden="true" style={{ color: social.color }} />;
   return (
-    <div className={className}>
-      <p className="text-[13px] text-white/55">Built by Alvee Alam. Say hi.</p>
-      <ul className="mt-2 flex items-center gap-2">
-        {brands.map((brand) => (
-          <li key={brand.label}>
-            <a
-              href={brand.href}
-              aria-label={brand.label}
-              className="grid size-9 place-items-center rounded-full bg-white/6 hover:bg-white/12"
-              target={brand.href.startsWith("mailto:") ? undefined : "_blank"}
-              rel="noreferrer"
-            >
-              <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true">
-                <path d={brand.path} fill={brand.color} />
-              </svg>
-            </a>
-          </li>
-        ))}
-        <li>
-          <a
-            href="https://tinysamples.com"
-            aria-label="Website"
-            className="grid size-9 place-items-center rounded-full bg-white/6 text-white/80 hover:bg-white/12"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Globe className="size-4" aria-hidden="true" />
-          </a>
-        </li>
-      </ul>
-    </div>
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <path d={social.path} fill={social.color} />
+    </svg>
   );
+}
+
+export function isExternal(href: string) {
+  return !href.startsWith("mailto:");
 }

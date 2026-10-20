@@ -91,7 +91,7 @@ The website calls those functions from the server with `SUPABASE_PUBLISHABLE_KEY
 
 ## Setup guide
 
-`/guide` is the install and connection guide. The home footer links to it.
+The home page is one screen (headline, phone, Download) and one setup panel below it with four short tabs: Install, Connect, Keep running, Help. `/guide` redirects to `/#setup`, and the download dialog links there once the APK starts. The steps live in `src/components/setup-panel.tsx`.
 
 ## Deploy on Vercel
 
@@ -101,8 +101,12 @@ This is a Next.js App Router app. Import the repository in Vercel and add the en
 
 ## App screens
 
-The phone images in `public/screens` are the v3.0 screenshots: home in dark and light, home when every connection is working, the three add-connection steps, the apps picker, and a connection page. The logo is `public/logo.png`.
+The phones on the site are dark only. `home`, `connection`, `apps` and `phone-setup` in `public/screens` are real Relay 3.0 captures with the status bar, nav bar and bot address blacked out. The three add-connection steps are drawn in code (`src/components/phones/screens.tsx`) from the Android app's own layout. All phones render through `src/components/phones/phone.tsx`.
 
-## Credit
+To swap a screenshot, replace the `.webp` (900 x 2000, status bar and nav bar painted black) and keep the file name.
 
-The footer and the setup guide say "Built by Alvee Alam. Say hi." and link LinkedIn, Facebook, WhatsApp, email, and https://tinysamples.com.
+The logo is `public/logo.png`.
+
+## Creator
+
+Alvee's name, tagline and every profile link live in `src/lib/creator.ts` and `src/components/social-icons.tsx`. They show in the footer and on the download success screen. The photo is `public/alvee.jpg` (from his LinkedIn profile, shown in a green ring). Replace the file to change it. If it is ever missing, a monogram shows instead.

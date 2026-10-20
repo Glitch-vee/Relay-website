@@ -6,9 +6,5 @@ export async function DownloadCount() {
   const total = await getDownloadTotal();
   if (total === null || total < 10) return null;
 
-  return (
-    <p className="text-xs text-white/50">
-      Downloaded {total.toLocaleString("en-US")} times
-    </p>
-  );
+  return <> · {total.toLocaleString("en-US")} downloads</>;
 }
