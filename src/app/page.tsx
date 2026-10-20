@@ -14,7 +14,7 @@ export default function HomePage({
       </Suspense>
       <section id="setup" className="site-wrap py-16 md:py-24">
         <h2 className="mb-8 text-center text-[clamp(2rem,5vw,3.25rem)] leading-none font-medium tracking-[-0.05em]">
-          Set up <span className="accent-serif">Relay.</span>
+          Connect <span className="accent-serif">Grok</span> to Relay.
         </h2>
         <SetupPanel />
       </section>
