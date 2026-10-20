@@ -1,6 +1,6 @@
 "use client";
 
-import { CreatorIdentity, SocialChips } from "@/components/creator-card";
+import { CreatorIdentity, SocialTiles } from "@/components/creator-card";
 import { normalizeEmail } from "@/lib/email";
 import { APK_PATH, RELAY_VERSION } from "@/lib/release";
 import { Dialog } from "@base-ui/react/dialog";
@@ -85,36 +85,39 @@ export function DownloadDialog({
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Backdrop className="fixed inset-0 z-[70] bg-black/75 backdrop-blur-md" />
-        <Dialog.Popup className="fixed inset-x-3 top-1/2 z-[70] mx-auto max-h-[calc(100dvh-1.5rem)] max-w-md -translate-y-1/2 overflow-y-auto rounded-[1.75rem] border border-white/12 bg-[#0e0e12] p-6 text-white shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)] outline-none sm:p-8">
+        <Dialog.Popup className="fixed inset-x-3 top-1/2 z-[70] mx-auto max-h-[calc(100dvh-1.5rem)] max-w-sm -translate-y-1/2 overflow-y-auto rounded-3xl border border-white/12 bg-[#0e0e12] p-5 text-white shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)] outline-none">
           <Dialog.Close
             aria-label="Close"
-            className="absolute top-4 right-4 grid size-9 place-items-center rounded-full bg-white/8 text-white/70 hover:bg-white/15 hover:text-white"
+            className="absolute top-3.5 right-3.5 grid size-8 place-items-center rounded-full bg-white/8 text-white/70 hover:bg-white/15 hover:text-white"
           >
             <X className="size-4" aria-hidden="true" />
           </Dialog.Close>
 
           {done ? (
             <div>
-              <span className="grid size-11 place-items-center rounded-full bg-[#30d158] text-black">
-                <Check className="size-5" strokeWidth={3} aria-hidden="true" />
-              </span>
-              <Dialog.Title className="mt-5 text-2xl leading-tight font-semibold tracking-[-0.03em]">
-                Relay {RELAY_VERSION} is downloading.
-              </Dialog.Title>
-              <Dialog.Description className="mt-2 text-[15px] text-white/55">
-                Open the file when it finishes.
-              </Dialog.Description>
+              <div className="flex items-center gap-3 pr-10">
+                <span className="grid size-8 shrink-0 place-items-center rounded-full bg-[#30d158] text-black">
+                  <Check className="size-4" strokeWidth={3} aria-hidden="true" />
+                </span>
+                <div className="leading-tight">
+                  <Dialog.Title className="text-lg font-semibold tracking-[-0.02em]">
+                    Relay {RELAY_VERSION} is downloading
+                  </Dialog.Title>
+                  <Dialog.Description className="text-[13px] text-white/50">
+                    Open the file when it finishes.
+                  </Dialog.Description>
+                </div>
+              </div>
               <Link
                 href="/#setup"
                 onClick={() => setOpen(false)}
-                className="mt-5 inline-flex h-12 w-full items-center justify-center rounded-full bg-white text-[15px] font-semibold text-black hover:bg-white/90"
+                className="mt-4 inline-flex h-11 w-full items-center justify-center rounded-full bg-white text-sm font-semibold text-black hover:bg-white/90"
               >
                 Setup guide
               </Link>
-
-              <div className="mt-7 border-t border-white/10 pt-6">
-                <CreatorIdentity size={48} />
-                <SocialChips className="mt-5" />
+              <div className="mt-4 border-t border-white/10 pt-4">
+                <CreatorIdentity />
+                <SocialTiles className="mt-3.5" />
               </div>
             </div>
           ) : (

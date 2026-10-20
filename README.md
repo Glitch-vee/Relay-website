@@ -109,4 +109,4 @@ The logo is `public/logo.png`.
 
 ## Creator
 
-Alvee's name, tagline and every profile link live in `src/lib/creator.ts` and `src/components/social-icons.tsx`. They show in the footer and on the download success screen. Add a square photo at `public/alvee.jpg` and it appears automatically in a green ring. Until then a monogram shows.
+Alvee's name, tagline and every profile link live in `src/lib/creator.ts` and `src/components/social-icons.tsx`. They show in the footer and on the download success screen. The photo is `public/alvee.jpg` (from his LinkedIn profile, shown in a green ring). Replace the file to change it. If it is ever missing, a monogram shows instead.
