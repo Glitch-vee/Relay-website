@@ -24,7 +24,7 @@ export function LoginForm({ error }: { error?: string }) {
         />
       </div>
       {message ? (
-        <p className="text-sm text-[#ff3b30]" role="alert">
+        <p className="text-sm text-[#ff9b94]" role="alert">
           {message}
         </p>
       ) : null}

@@ -18,29 +18,32 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#07070a",
+          background:
+            "radial-gradient(ellipse 70% 80% at 85% 10%, rgba(91,61,245,0.75), transparent 60%), radial-gradient(ellipse 60% 70% at 100% 90%, rgba(31,201,160,0.45), transparent 60%), radial-gradient(ellipse 50% 60% at 60% 0%, rgba(42,167,232,0.4), transparent 60%), #050507",
           padding: "72px",
           fontFamily: "sans-serif",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <img src={src} alt="" width={72} height={72} />
-          <div style={{ fontSize: 32, fontWeight: 600, color: "#ffffff" }}>Relay</div>
+          <img src={src} alt="" width={64} height={64} style={{ borderRadius: 16 }} />
+          <div style={{ fontSize: 36, fontWeight: 600, color: "#ffffff" }}>Relay</div>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div
             style={{
-              fontSize: 76,
+              fontSize: 110,
               fontWeight: 600,
-              letterSpacing: -2,
-              lineHeight: 1.02,
+              letterSpacing: -4,
+              lineHeight: 0.98,
               color: "#ffffff",
               maxWidth: 980,
             }}
           >
             Give Grok a phone.
           </div>
-          <div style={{ fontSize: 30, color: "rgba(255,255,255,0.62)" }}>Free for Android</div>
+          <div style={{ display: "flex", fontSize: 30, color: "rgba(255,255,255,0.7)" }}>
+            Free for Android · Built by Alvee Alam
+          </div>
         </div>
       </div>
     ),
