@@ -10,9 +10,6 @@ const SHOTS = {
   home: { src: "/screens/home.webp", label: "Relay home. Every connection is working." },
   connection: { src: "/screens/connection.webp", label: "A connection page with what it receives, where it sends, and options." },
   apps: { src: "/screens/apps.webp", label: "Picking which apps can send alerts." },
-  messages: { src: "/screens/messages.webp", label: "Picking which text senders to forward." },
-  activity: { src: "/screens/activity.webp", label: "The activity page with Send now, Send again and Send a test." },
-  settings: { src: "/screens/settings.webp", label: "Relay settings with Phone setup." },
   "phone-setup": { src: "/screens/phone-setup.webp", label: "Phone setup checklist: allow texts, turn on app alerts, keep Relay running." },
 } as const;
 

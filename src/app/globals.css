@@ -94,7 +94,7 @@
     color-scheme: dark;
     background: #050507;
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 1rem;
     -webkit-text-size-adjust: 100%;
   }
   body {
@@ -132,58 +132,16 @@
   letter-spacing: -0.02em;
 }
 
-/* Hairline glass surface */
-.glass {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(18px);
-  backdrop-filter: blur(18px);
-}
-
-/* Aurora ribbon: slow drifting layers. Only transform moves, so it stays on the GPU. */
-@keyframes aurora-drift-a {
-  0% { transform: translate3d(-3%, 2%, 0) rotate(-2deg) scale(1.02); }
-  50% { transform: translate3d(3%, -3%, 0) rotate(2.5deg) scale(1.08); }
-  100% { transform: translate3d(-3%, 2%, 0) rotate(-2deg) scale(1.02); }
-}
-@keyframes aurora-drift-b {
-  0% { transform: translate3d(3%, -2%, 0) rotate(3deg) scale(1.06); }
-  50% { transform: translate3d(-4%, 3%, 0) rotate(-3deg) scale(1); }
-  100% { transform: translate3d(3%, -2%, 0) rotate(3deg) scale(1.06); }
-}
-@keyframes float-y {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, -10px, 0); }
-}
 @keyframes rise-in {
-  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  from { opacity: 0; transform: translate3d(0, 12px, 0); }
   to { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
-.aurora-a { animation: aurora-drift-a 22s ease-in-out infinite; transform-origin: 50% 50%; }
-.aurora-b { animation: aurora-drift-b 28s ease-in-out infinite; transform-origin: 50% 50%; }
-.float-slow { animation: float-y 7s ease-in-out infinite; }
-.float-slower { animation: float-y 9s ease-in-out -3s infinite; }
-.rise { animation: rise-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.rise { animation: rise-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 .rise-1 { animation-delay: 0.08s; }
-.rise-2 { animation-delay: 0.18s; }
-.rise-3 { animation-delay: 0.3s; }
-.rise-4 { animation-delay: 0.42s; }
-
-.aurora-paused .aurora-a,
-.aurora-paused .aurora-b {
-  animation-play-state: paused;
-}
+.rise-2 { animation-delay: 0.16s; }
+.rise-3 { animation-delay: 0.26s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .aurora-a, .aurora-b, .float-slow, .float-slower, .rise {
-    animation: none;
-  }
+  .rise { animation: none; }
 }
-
-/* Hide scrollbar on horizontal rails */
-.no-scrollbar { scrollbar-width: none; }
-.no-scrollbar::-webkit-scrollbar { display: none; }
-
-details > summary { list-style: none; }
-details > summary::-webkit-details-marker { display: none; }

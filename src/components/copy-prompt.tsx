@@ -3,7 +3,7 @@
 import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 
-export function CopyPrompt({ text }: { text: string }) {
+export function CopyPromptButton({ text, label }: { text: string; label: string }) {
   const [copied, setCopied] = useState(false);
 
   async function copy() {
@@ -17,16 +17,13 @@ export function CopyPrompt({ text }: { text: string }) {
   }
 
   return (
-    <div className="glass rounded-3xl p-5 sm:p-7">
-      <blockquote className="text-[15px] leading-relaxed text-white/75 sm:text-base">{text}</blockquote>
-      <button
-        type="button"
-        onClick={copy}
-        className="mt-5 inline-flex h-11 items-center gap-2 rounded-full bg-white px-5 text-sm font-semibold text-black transition-colors hover:bg-white/90"
-      >
-        {copied ? <Check className="size-4" aria-hidden="true" /> : <Copy className="size-4" aria-hidden="true" />}
-        {copied ? "Copied" : "Copy prompt"}
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={copy}
+      className="inline-flex h-11 items-center gap-2 rounded-full border border-white/12 px-5 text-sm text-white/80 transition-colors hover:border-white/30 hover:text-white"
+    >
+      {copied ? <Check className="size-4" aria-hidden="true" /> : <Copy className="size-4" aria-hidden="true" />}
+      {copied ? "Copied" : label}
+    </button>
   );
 }

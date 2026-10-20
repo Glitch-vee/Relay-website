@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function StatsPage({ searchParams }: { searchParams: Promise<StatsSearch> }) {
   return (
-    <div className="flex-1 pt-20 text-white">
+    <div className="flex-1 text-white">
       <Suspense fallback={<p className="site-wrap py-20 text-white/55">Loading…</p>}>
         <StatsBody searchParams={searchParams} />
       </Suspense>

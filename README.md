@@ -91,7 +91,7 @@ The website calls those functions from the server with `SUPABASE_PUBLISHABLE_KEY
 
 ## Setup guide
 
-The full setup walkthrough is a section on the home page (`#setup`), so people see it before they download. `/guide` shows the same section as its own page, and the download dialog links to it once the APK starts.
+The home page is one screen (headline, phone, Download) and one setup panel below it with four short tabs: Install, Connect, Keep running, Help. `/guide` redirects to `/#setup`, and the download dialog links there once the APK starts. The steps live in `src/components/setup-panel.tsx`.
 
 ## Deploy on Vercel
 
@@ -101,7 +101,7 @@ This is a Next.js App Router app. Import the repository in Vercel and add the en
 
 ## App screens
 
-Every phone on the site is dark. The home, connection, apps, messages, activity, settings and phone-setup screens in `public/screens` are real Relay 3.0 captures, processed with the status bar, nav bar, bot address and private lists blacked out. The three add-connection steps are drawn in code (`src/components/phones/screens.tsx`) to match, because those captures were light mode. All phones render through `src/components/phones/phone.tsx`.
+The phones on the site are dark only. `home`, `connection`, `apps` and `phone-setup` in `public/screens` are real Relay 3.0 captures with the status bar, nav bar and bot address blacked out. The three add-connection steps are drawn in code (`src/components/phones/screens.tsx`) from the Android app's own layout. All phones render through `src/components/phones/phone.tsx`.
 
 To swap a screenshot, replace the `.webp` (900 x 2000, status bar and nav bar painted black) and keep the file name.
 
@@ -109,4 +109,4 @@ The logo is `public/logo.png`.
 
 ## Creator
 
-Alvee's name, tagline, bio and every profile link live in `src/lib/creator.ts` and `src/components/social-icons.tsx`. They show in the home page creator section, the setup guide, the footer, and the download success screen. Add a square photo at `public/alvee.jpg` and it appears automatically in a green ring. Until then a monogram shows.
+Alvee's name, tagline and every profile link live in `src/lib/creator.ts` and `src/components/social-icons.tsx`. They show in the footer and on the download success screen. Add a square photo at `public/alvee.jpg` and it appears automatically in a green ring. Until then a monogram shows.

@@ -18,8 +18,7 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background:
-            "radial-gradient(ellipse 70% 80% at 85% 10%, rgba(91,61,245,0.75), transparent 60%), radial-gradient(ellipse 60% 70% at 100% 90%, rgba(31,201,160,0.45), transparent 60%), radial-gradient(ellipse 50% 60% at 60% 0%, rgba(42,167,232,0.4), transparent 60%), #050507",
+          background: "radial-gradient(ellipse 50% 70% at 85% 50%, rgba(130,150,255,0.18), transparent 70%), #050507",
           padding: "72px",
           fontFamily: "sans-serif",
         }}
@@ -31,7 +30,7 @@ export default function OpenGraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div
             style={{
-              fontSize: 110,
+              fontSize: 120,
               fontWeight: 600,
               letterSpacing: -4,
               lineHeight: 0.98,
@@ -42,7 +41,7 @@ export default function OpenGraphImage() {
             Give Grok a phone.
           </div>
           <div style={{ display: "flex", fontSize: 30, color: "rgba(255,255,255,0.7)" }}>
-            Free for Android · Built by Alvee Alam
+            Free for Android
           </div>
         </div>
       </div>

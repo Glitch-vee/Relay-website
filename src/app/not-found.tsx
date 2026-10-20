@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="site-wrap flex flex-1 flex-col items-center justify-center py-40 text-center">
+    <div className="site-wrap flex flex-1 flex-col items-center justify-center py-24 text-center">
       <p className="text-sm font-medium tracking-[0.14em] text-[#9db4ff] uppercase">404</p>
       <h1 className="mt-4 text-[clamp(2.5rem,8vw,4.5rem)] leading-[1] font-medium tracking-[-0.05em]">
         That page is <span className="accent-serif">not here.</span>

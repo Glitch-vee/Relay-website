@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
  * so there is never a broken image. Alvee's brand ring is green on near-black.
  */
 export function CreatorAvatar({ size = 96, className = "" }: { size?: number; className?: string }) {
+  const ring = size < 48 ? "ring-2 ring-offset-2" : "ring-[3px] ring-offset-[3px]";
   const [loaded, setLoaded] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -18,7 +19,7 @@ export function CreatorAvatar({ size = 96, className = "" }: { size?: number; cl
 
   return (
     <span
-      className={`relative grid shrink-0 place-items-center overflow-hidden rounded-full bg-[#111] ring-[3px] ring-[#5cb800] ring-offset-[3px] ring-offset-[#050507] ${className}`}
+      className={`relative grid shrink-0 place-items-center overflow-hidden rounded-full bg-[#111] ${ring} ring-[#5cb800] ring-offset-[#050507] ${className}`}
       style={{ width: size, height: size }}
     >
       <span className="font-semibold tracking-[-0.04em] text-[#5cb800]" style={{ fontSize: size * 0.4 }} aria-hidden="true">

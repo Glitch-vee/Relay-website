@@ -22,7 +22,7 @@ export function PhoneFrame({
       role="img"
       aria-label={label}
       style={style}
-      className={`relative shrink-0 rounded-[calc(54px*var(--s)+9px)] bg-[#0b0b0e] p-[9px] shadow-[0_0_0_1px_rgba(255,255,255,0.14),0_0_0_2px_rgba(0,0,0,0.9),0_40px_90px_-30px_rgba(88,70,255,0.55),0_20px_40px_-20px_rgba(0,0,0,0.8)] ${className}`}
+      className={`relative shrink-0 rounded-[calc(54px*var(--s)+9px)] bg-[#0b0b0e] p-[9px] shadow-[0_0_0_1px_rgba(255,255,255,0.14),0_0_0_2px_rgba(0,0,0,0.9),0_40px_100px_-40px_rgba(140,160,255,0.28),0_20px_40px_-20px_rgba(0,0,0,0.8)] ${className}`}
     >
       {/* side buttons */}
       <span aria-hidden="true" className="absolute top-[22%] -right-[3px] h-[9%] w-[3px] rounded-r bg-white/15" />
