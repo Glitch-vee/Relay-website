@@ -111,28 +111,46 @@ function StepTitle({ step, title, sub }: { step: number; title: string; sub: str
   );
 }
 
+/** Same eight avatar colours as the app (Connection.COLORS). */
+const AVATAR_COLORS = ["#0a84ff", "#30b0c7", "#34c759", "#ff9f0a", "#ff375f", "#bf5af2", "#5e5ce6", "#8e8e93"];
+const AVATAR_EMOJIS = ["", "💰", "💬", "🤖", "🔔", "🏦", "📦", "⭐"];
+const tint = (color: string, base: string) => `color-mix(in srgb, ${color} 20%, ${base})`;
+
 export function NameStepScreen() {
-  const emojis = ["💰", "💬", "🤖", "🔔", "🏦", "📦"];
-  const tints = ["#16324f", "#17404a", "#1f3b2a", "#4a3516", "#4a1f2b", "#3a2748", "#2a2a52"];
+  const ring = { boxShadow: `0 0 0 3px ${BLUE}` };
   return (
     <Screen>
       <StepHeader left="Cancel" title="New connection" />
-      <StepTitle step={1} title="Name it" sub="For example “Finvee” or “Family chat”." />
+      <StepTitle step={1} title="Name it" sub="For example “Finance bot” or “Family chat”." />
       <div className="mt-[22px] flex justify-center">
-        <Avatar bg="#1f3b2a" size={86}>💰</Avatar>
+        <Avatar bg={tint(AVATAR_COLORS[0], "#000")} size={83}>💰</Avatar>
       </div>
       <Group className="mt-[20px] px-[18px] py-[19px] text-[24px]">Finvee</Group>
-      <Group className="mt-[18px] p-[16px]">
-        <div className="flex items-center justify-between">
-          <span className="grid size-[48px] place-items-center rounded-full text-[22px] font-semibold" style={{ background: GREEN }}>F</span>
-          {emojis.map((e, i) => (
-            <span key={e} className="grid size-[48px] place-items-center rounded-full text-[24px]" style={{ background: "#1f3b2a", boxShadow: i === 0 ? `0 0 0 3px ${BLUE}` : undefined }}>{e}</span>
+      <Group className="mt-[18px]">
+        <div className="flex gap-[11px] overflow-hidden px-[13px] py-[11px]">
+          {AVATAR_EMOJIS.map((e) => (
+            <span
+              key={e || "letter"}
+              className="grid size-[48px] shrink-0 place-items-center rounded-full text-[22px]"
+              style={{
+                background: e ? tint(AVATAR_COLORS[0], CARD) : AVATAR_COLORS[0],
+                ...(e === "💰" ? ring : null),
+              }}
+            >
+              {e || <span className="font-bold text-white">F</span>}
+            </span>
           ))}
         </div>
-        <div className="my-[14px] h-px bg-white/10" />
-        <div className="flex items-center justify-between">
-          {tints.map((t, i) => (
-            <span key={t} className="grid size-[48px] place-items-center rounded-full text-[24px]" style={{ background: t, boxShadow: i === 2 ? `0 0 0 3px ${BLUE}` : undefined }}>💰</span>
+        <Divider inset={18} />
+        <div className="flex gap-[11px] overflow-hidden px-[13px] py-[11px]">
+          {AVATAR_COLORS.map((c, i) => (
+            <span
+              key={c}
+              className="grid size-[48px] shrink-0 place-items-center rounded-full text-[22px]"
+              style={{ background: tint(c, CARD), ...(i === 0 ? ring : null) }}
+            >
+              💰
+            </span>
           ))}
         </div>
       </Group>

@@ -157,7 +157,7 @@ export function DownloadDialog({
                   {pending ? "Sending..." : "Download Relay"}
                 </button>
               </form>
-              <p className="mt-4 text-center text-xs text-white/40">Free · Android · v{RELAY_VERSION} APK</p>
+              <p className="mt-4 text-center text-xs text-white/40">Free · Android 8 or newer · v{RELAY_VERSION} APK</p>
             </div>
           )}
         </Dialog.Popup>

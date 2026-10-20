@@ -1,4 +1,4 @@
-import { Banknote, Layers, Pause, Repeat, ShieldCheck, Webhook } from "lucide-react";
+import { Banknote, Layers, Link2, Pause, Repeat, ShieldCheck } from "lucide-react";
 
 const STEPS = [
   {
@@ -9,7 +9,7 @@ const STEPS = [
   {
     n: "02",
     title: "Send them to Grok",
-    body: "Relay posts each alert to the address you give it, as JSON your bot or webhook can read. No copy and paste.",
+    body: "Relay posts each alert to the https address you give it, as JSON your bot or webhook can read. No copy and paste.",
   },
   {
     n: "03",
@@ -20,11 +20,11 @@ const STEPS = [
 
 const FEATURES = [
   { icon: Banknote, title: "Only money messages", body: "Send just payments, transfers and balances." },
-  { icon: ShieldCheck, title: "Login codes ignored", body: "One-time codes never leave your phone unless you say so." },
+  { icon: ShieldCheck, title: "Login codes skipped", body: "Login and one-time codes are ignored by default. You can change that." },
   { icon: Layers, title: "As many connections as you like", body: "A finance bot, a family chat, an orders feed. Each with its own rules." },
   { icon: Repeat, title: "Resend the last 24 hours", body: "Missed something? Send it again in two taps." },
   { icon: Pause, title: "Pause any time", body: "Switch a connection off without deleting it." },
-  { icon: Webhook, title: "Your address, your key", body: "Works with any bot or webhook that accepts a POST." },
+  { icon: Link2, title: "Setup links, no typing", body: "A bot can hand you one relay:// link. Tap it and the connection fills itself in." },
 ] as const;
 
 export function HowItWorks() {

@@ -71,7 +71,7 @@ export function Hero({ openDownload = false }: { openDownload?: boolean }) {
 
       {/* The phone rises out of the bottom of the hero, with the alerts that flow to Grok */}
       <div className="rise rise-4 relative mx-auto mt-10 h-[30rem] w-full max-w-3xl overflow-hidden sm:mt-14 sm:h-[34rem]">
-        <div className="absolute inset-x-0 top-[6.5rem] flex justify-center sm:top-0">
+        <div className="absolute inset-x-0 top-[7rem] flex justify-center sm:top-0">
           <Phone screen="home" priority className="float-slow [--s:0.6] sm:[--s:0.76]" />
         </div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050507] to-transparent" />
@@ -79,13 +79,13 @@ export function Hero({ openDownload = false }: { openDownload?: boolean }) {
           icon={<Landmark className="size-3 sm:size-3.5" />}
           title="UCB · SMS"
           body="Tk 1,200 debited at Daraz. Balance Tk 8,430."
-          className="float-slower top-0 left-3 sm:top-[14%] sm:left-0"
+          className="float-slower top-3 left-3 sm:top-[14%] sm:left-0"
         />
         <AlertCard
           icon={<BellRing className="size-3 sm:size-3.5" />}
           title="bKash"
           body="You have received Tk 2,500 from Rafi."
-          className="float-slow top-4 right-3 sm:top-[40%] sm:right-0"
+          className="float-slow top-8 right-3 sm:top-[40%] sm:right-0"
         />
       </div>
     </section>

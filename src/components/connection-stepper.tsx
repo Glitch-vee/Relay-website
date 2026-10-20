@@ -26,7 +26,7 @@ const STEPS: { screen: ScreenId; title: string; body: React.ReactNode }[] = [
     body: (
       <>
         Tap <b className="font-medium text-white">Paste setup link</b> if your bot gave you one. Otherwise type the
-        address (https://…) and the key, then tap <b className="font-medium text-white">Test connection</b>.
+        https:// address and the key, then tap <b className="font-medium text-white">Test connection</b>.
       </>
     ),
   },

@@ -9,7 +9,7 @@ import type { ReactNode } from "react";
 const B = ({ children }: { children: ReactNode }) => <b className="font-medium text-white">{children}</b>;
 
 const INSTALL: { title: string; body: ReactNode }[] = [
-  { title: "Download the APK", body: <>Tap <B>Download</B> and save Relay {RELAY_VERSION} to your phone.</> },
+  { title: "Download the APK", body: <>Tap <B>Download</B> and save Relay {RELAY_VERSION} to your phone. It needs Android 8 or newer.</> },
   {
     title: "Allow the install",
     body: <>When Android asks, tap <B>Settings</B>, turn on <B>Allow from this source</B> (Chrome or Files), then go back.</>,
@@ -50,7 +50,7 @@ const TROUBLE: { q: ReactNode; a: ReactNode }[] = [
 ];
 
 const AI_PROMPT =
-  'I use an Android app called Relay. It sends my text messages and app alerts to a webhook as JSON (sender, body, timestamp, and the connection name). Create a webhook endpoint and a key for it, and tell me the https address, the header name, the key, and whether I need "Bearer" before the key.';
+  'I use an Android app called Relay. It sends my text messages and app alerts to a webhook as JSON (sender, body, timestamp, and the connection name). Create an https webhook endpoint and a key for it, and tell me the https address, the header name, the key, and whether I need "Bearer" before the key. If you can, also give me one setup link I can paste into Relay, in this form: relay://connect?name=NAME&url=URL-ENCODED-HTTPS-ADDRESS&header=Authorization&key=KEY&bearer=1';
 
 function SubHead({ eyebrow, title, accent }: { eyebrow: string; title: string; accent: string }) {
   return (
@@ -111,7 +111,7 @@ export function SetupSection({ id = "setup", asPage = false }: { id?: string; as
         <div>
           <SubHead eyebrow="Part 3" title="Need an address" accent="and key?" />
           <p className="mt-5 max-w-md text-[16px] leading-relaxed text-white/60">
-            Ask an AI assistant, or whoever runs your bot, with this:
+            Ask an AI assistant, or whoever runs your bot, with this. Relay needs an https address. A setup link fills in everything for you.
           </p>
         </div>
         <CopyPrompt text={AI_PROMPT} />
